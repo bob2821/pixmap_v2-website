@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pix-Map — by VJ KayCee</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@600;800&family=Geist:wght@400&family=Geist+Mono:wght@400&family=Open+Sans:wght@300;400&family=Oxanium:wght@300;400&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/preloader.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/usp.css">
+</head>
+<body class="loading">
+
+  <!-- Background grid canvas -->
+  <div id="bgField">
+    <canvas id="gridTrail"></canvas>
+  </div>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="loader-wrap">
+      <div class="loader">
+        <div class="loader-square"></div>
+        <div class="loader-square"></div>
+        <div class="loader-square"></div>
+        <div class="loader-square"></div>
+        <div class="loader-square"></div>
+        <div class="loader-square"></div>
+        <div class="loader-square"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <span class="hdr-edge" aria-hidden="true"></span>
+
+    <div class="brand">
+      <a class="brand-logo" href="index.html">
+        <img src="assets/logos/logo_black.png" alt="Pix-Map logo">
+      </a>
+      <a class="brand-vj" href="pages/vjkaycee.html">
+        <span class="byline">
+          <span class="by">by</span>
+          <span class="name">VJ KayCee</span>
+        </span>
+      </a>
+    </div>
+
+    <nav class="site-nav" id="siteNav">
+      <a class="nav-link" href="pages/download.html">Downloads</a>
+      <a class="nav-link" href="#manual">Manual</a>
+      <a class="nav-link" href="pages/pricing.html">Pricing</a>
+      <a class="btn-auth" href="pages/login.html">Login / Sign Up</a>
+    </nav>
+
+    <!-- Hamburger toggle (mobile only) -->
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="siteNav">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Main content -->
+  <main id="top">
+
+    <!-- Hero section -->
+    <section class="hero" id="heroSection">
+
+      <!-- Tagline — split into word spans by preloader.js -->
+      <p class="hero-copy left"  id="heroCopyL">PIXMAP is an advanced platform for large-scale LED installations, empowering designers and production teams to create, manage, and deploy complex visual experiences with unmatched precision, speed, and scalability</p>
+      <p class="hero-copy right" id="heroCopyR">A unified workspace for designers to patch surfaces, apply masks, and generate production-ready XMLs for seamless deployment across Resolume Arena, Pixera, Watchout, disguise, and other leading media servers.</p>
+
+      <!-- 3D logo -->
+      <div id="logo3d">
+        <div class="tile-glass" aria-hidden="true"></div>
+        <div class="flip" id="logoFlip">
+          <div class="face front">
+            <img src="assets/logos/logo_black_lg.png" alt="PIXMAP">
+          </div>
+          <div class="face back">
+            <div class="diamond"></div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- sem1 background: fades in behind patch during Phase 4 scroll -->
+    <div id="sem1Bg">
+      <img src="assets/images/sem1.png" alt="">
+    </div>
+
+
+    <!-- Patch reveal: sci-fi panel unfold from hero logo position -->
+    <div id="patchReveal" aria-hidden="true">
+      <!-- Tile grid: 22×5 cells, wave-assembled by patch-scene.js -->
+      <div class="pr-tile-grid" id="prTileGrid"></div>
+      <!-- Seamless overlay: patch_stage.png at native aspect ratio -->
+      <div class="pr-seamless" id="prSeamless">
+        <img src="assets/images/patch_stage.png" alt="Stage">
+      </div>
+    </div>
+
+    <!-- Patch final: patch.png at its own native aspect ratio (Phase 4) -->
+    <div id="patchFinal" aria-hidden="true">
+      <div class="pf-tile-grid" id="pfTileGrid"></div>
+      <div class="pf-seamless" id="pfSeamless">
+        <img src="assets/images/patch.png" alt="Patch">
+      </div>
+    </div>
+
+    <!-- USP dim overlay — dims sem1/patch during each USP card reveal -->
+    <div id="uspDimOverlay" aria-hidden="true"></div>
+
+    <!-- Op1 scene — post-USP tile-assembly transition + sentence reveal -->
+    <div id="op1Scene" aria-hidden="true">
+      <div id="op1TileGrid"></div>
+      <div id="op1Seamless"><img src="assets/images/op1.png" alt=""></div>
+    </div>
+    <p id="op1Text" aria-hidden="true">But PIXMAP doesn't stop at patch creation, it also unlocks advanced output generation for professional LED workflows.</p>
+
+    <!-- USP parallax showcase — 12 product features, one per scroll viewport -->
+    <section id="uspSection" aria-label="Product Features">
+      <div id="uspSticky">
+        <div id="uspCards" aria-live="polite"></div>
+        <div id="uspProgress" aria-hidden="true">
+          <div class="usp-prog-bar-wrap">
+            <div id="uspProgressBar"></div>
+          </div>
+          <span id="uspProgressCount">01 / 12</span>
+        </div>
+      </div>
+    </section>
+
+
+  </main>
+
+  <!-- Final CTA — fade-in after op2 image exits, controlled by op1-scene.js -->
+  <section id="finalCta">
+    <p>PIXMAP is a professional LED workflow platform built for<br class="cta-br"> creating precise pixel patches, generating advanced production outputs,<br class="cta-br"> and managing intelligent LED wiring connections within one unified system.</p>
+    <a id="finalCtaBtn" href="pages/download.html">Download Now</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="foot-grid">
+
+        <!-- Left Column: Brand Block -->
+        <div class="foot-brand">
+          <div class="brand-row">
+            <a href="index.html" style="text-decoration:none; display:block;">
+              <img src="assets/logos/logo_black.png" alt="PIXMAP logo">
+            </a>
+            <a href="pages/vjkaycee.html" style="text-decoration:none; display:block;">
+              <div class="brand-text">
+                <span class="by">By</span>
+                <span class="name">VJ KayCee</span>
+              </div>
+            </a>
+          </div>
+          <p>Built for the stage. Engineered for precision. The professional standard in LED pixel mapping.</p>
+        </div>
+
+        <!-- Right Column: Copyright -->
+        <div class="foot-right">
+          <div class="copyright">© 2026 PIXMAP. All rights reserved.</div>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- Always start from top on reload -->
+  <script>
+    (function () {
+      var isReload = false;
+      if (window.performance && window.performance.getEntriesByType) {
+        var navEntries = window.performance.getEntriesByType('navigation');
+        if (navEntries.length > 0) {
+          isReload = (navEntries[0].type === 'reload');
+        }
+      }
+      if (isReload) {
+        sessionStorage.removeItem('comingFromSubpage');
+        sessionStorage.removeItem('homeScrollY');
+      }
+
+      var returning = sessionStorage.getItem('comingFromSubpage') === 'true';
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+      if (returning) {
+        // Inject styles immediately to hide preloader and set dark theme so it never flashes during parse
+        var style = document.createElement('style');
+        style.innerHTML = '#preloader { display: none !important; } body { background: #04040E !important; } #bgField { opacity: 1 !important; }';
+        document.head.appendChild(style);
+      } else {
+        window.scrollTo(0, 0);
+        var resetScroll = function () { window.scrollTo(0, 0); };
+        window.addEventListener('load', resetScroll);
+        document.addEventListener('DOMContentLoaded', resetScroll);
+      }
+    })();
+  </script>
+
+  <!-- Hamburger nav toggle -->
+  <script>
+    (function () {
+      var toggle = document.getElementById('navToggle');
+      var nav    = document.getElementById('siteNav');
+      if (!toggle || !nav) return;
+      toggle.addEventListener('click', function () {
+        var open = nav.classList.toggle('open');
+        toggle.classList.toggle('open', open);
+        toggle.setAttribute('aria-expanded', open);
+        document.body.classList.toggle('nav-open', open);
+      });
+      /* Close nav when a link is tapped */
+      nav.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          nav.classList.remove('open');
+          toggle.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+          document.body.classList.remove('nav-open');
+        });
+      });
+
+      // Header scroll state toggle
+      var header = document.querySelector('.site-header');
+      if (header) {
+        window.addEventListener('scroll', function () {
+          header.classList.toggle('scrolled', window.scrollY > 30);
+        }, { passive: true });
+        header.classList.toggle('scrolled', window.scrollY > 30);
+      }
+    }());
+  </script>
+
+  <!-- Intercept subpage clicks to save scroll position & logo clicks to reset state -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Save scroll position for subpages
+      document.querySelectorAll('a[href^="pages/"]').forEach(function (link) {
+        link.addEventListener('click', function () {
+          sessionStorage.setItem('homeScrollY', window.scrollY);
+          sessionStorage.setItem('comingFromSubpage', 'true');
+        });
+      });
+      // Clicking header/footer logo clears scroll position so page starts fresh
+      document.querySelectorAll('.brand-logo').forEach(function (logo) {
+        logo.addEventListener('click', function () {
+          sessionStorage.removeItem('comingFromSubpage');
+          sessionStorage.removeItem('homeScrollY');
+        });
+      });
+    });
+  </script>
+
+  <!-- Scripts — order matters -->
+  <script src="js/grid-trail.js"></script>
+  <script src="js/preloader.js"></script>
+  <script src="js/scroll-story.js"></script>
+  <script src="js/patch-scene.js"></script>
+  <script src="js/usp-scene.js"></script>
+  <script src="js/op1-scene.js"></script>
+
+  <!-- Restore scroll position after all scenes are built -->
+  <script>
+    (function () {
+      if (sessionStorage.getItem('comingFromSubpage') === 'true') {
+        var savedScrollY = sessionStorage.getItem('homeScrollY');
+        if (savedScrollY !== null) {
+          setTimeout(function () {
+            window.scrollTo(0, parseInt(savedScrollY, 10));
+          }, 80);
+        }
+        /* Always clear once consumed — otherwise a missing homeScrollY would
+           leave the flag set and permanently skip the intro on next load. */
+        sessionStorage.removeItem('comingFromSubpage');
+      }
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get PIXMAP — Downloads</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@600;800&family=Geist:wght@400&family=Geist+Mono:wght@400&family=Open+Sans:wght@300;400&family=Oxanium:wght@300;400&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="download.css">
+</head>
+<body class="bg-on">
+
+  <!-- Background grid canvas -->
+  <div id="bgField">
+    <canvas id="gridTrail"></canvas>
+  </div>
+
+  <!-- Header Navigation (from index.html style) -->
+  <header class="site-header reveal">
+    <span class="hdr-edge" aria-hidden="true"></span>
+
+    <div class="brand">
+      <a class="brand-logo" href="../index.html">
+        <img src="../assets/logos/logo_black.png" alt="Pix-Map logo">
+      </a>
+      <a class="brand-vj" href="vjkaycee.html">
+        <span class="byline">
+          <span class="by">by</span>
+          <span class="name">VJ KayCee</span>
+        </span>
+      </a>
+    </div>
+
+    <nav class="site-nav" id="siteNav">
+      <a class="nav-link" href="download.html">Downloads</a>
+      <a class="nav-link" href="../index.html#manual">Manual</a>
+      <a class="nav-link" href="pricing.html">Pricing</a>
+      <a class="btn-auth" href="login.html">Login / Sign Up</a>
+    </nav>
+
+    <!-- Hamburger toggle (mobile only) -->
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="siteNav">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Decorative radial background glows -->
+  <div class="bg-glow-container">
+    <div class="radial-glow-top-right"></div>
+    <div class="radial-glow-bottom-left"></div>
+  </div>
+
+  <div class="content-container">
+    <!-- Downloads Modal Wrapper -->
+    <div class="modal-wrapper" id="downloadModal">
+      <div class="modal-content">
+        <div class="modal-glow-corner"></div>
+      
+      <!-- Close button (x) -->
+      <button class="close-btn" id="closeBtn" aria-label="Close downloads console">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <!-- Label -->
+      <span class="label-downloads">Downloads</span>
+
+      <!-- Title & Description -->
+      <h1 class="modal-title">Get PIXMAP <span class="version">v 2.4.1</span></h1>
+      <p class="modal-description">
+        Free for unlicensed evaluation. Unlock unlimited export + Arena sync with a Studio license.
+      </p>
+
+      <!-- Platform Download Cards -->
+      <div class="cards-container">
+        
+        <!-- Windows Card -->
+        <div class="platform-card" id="winCard">
+          <div class="card-header">
+            <div class="icon-wrapper">
+              <!-- Monitor Icon representing Windows -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+            </div>
+            <span class="platform-name">Windows</span>
+            <span class="file-size">184 MB</span>
+          </div>
+          <div class="card-details">
+            PIXMAP-2.4.1.exe - 92 MB - x64 -<br>Windows 10+
+          </div>
+          <button class="download-btn" id="btnWin">
+            Download for Windows
+          </button>
+        </div>
+
+        <!-- macOS Card -->
+        <div class="platform-card" id="macCard">
+          <div class="card-header">
+            <div class="icon-wrapper">
+              <!-- Apple Icon -->
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.71,19.5 C17.88,20.74 17,21.95 15.66,21.97 C14.32,22 13.89,21.18 12.37,21.18 C10.84,21.18 10.37,21.95 9.1,22 C7.79,22.05 6.8,20.68 5.96,19.47 C4.25,17 2.94,12.45 4.7,9.39 C5.57,7.87 7.13,6.91 8.82,6.88 C10.1,6.86 11.32,7.75 12.11,7.75 C12.89,7.75 14.37,6.68 15.92,6.84 C16.57,6.87 18.39,7.1 19.56,8.82 C19.47,8.88 17.39,10.1 17.41,12.63 C17.44,15.65 20.06,16.66 20.1,16.67 C20.08,16.74 19.67,18.11 18.71,19.5 M15.97,4.17 C16.63,3.37 17.07,2.28 16.95,1 C16.01,1.04 14.87,1.63 14.2,2.42 C13.62,3.09 13.11,4.2 13.26,5.46 C14.31,5.54 15.39,4.95 15.97,4.17 Z"/>
+              </svg>
+            </div>
+            <span class="platform-name">macOS</span>
+            <span class="file-size">172 MB</span>
+          </div>
+          <div class="card-details">
+            PIXMAP-2.4.1.dmg - 84 MB - Apple<br>Silicon + Intel - macOS 12+
+          </div>
+          <!-- Main macOS download button -->
+          <button class="download-btn btn-mac-main" id="btnMac">
+            Download for macOS
+          </button>
+
+          <!-- macOS architecture options (Intel vs Apple Silicon) -->
+          <div class="mac-options-container" id="macOptions">
+            <div style="display: flex; gap: 8px; width: 100%;">
+              <button class="download-btn" id="btnMacIntel" style="flex: 1; font-size: 11px; height: 48px; padding: 0 4px;">Apple Intel (x64)</button>
+              <button class="download-btn" id="btnMacARM" style="flex: 1; font-size: 11px; height: 48px; padding: 0 4px;">Apple Silicon</button>
+            </div>
+            <button class="mac-back-link" id="btnMacBack">
+              Cancel
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer -->
+      <footer class="modal-footer">
+        SHA-256 checksums, release notes, and older builds available on request.
+      </footer>
+
+    </div>
+  </div>
+
+  <!-- Hidden Restore Container when modal is closed -->
+  <div class="restore-container" id="restoreContainer">
+    <h2 class="restore-title">Console Closed</h2>
+    <p class="restore-desc">Need to download PIXMAP v 2.4.1 again? Click below to reopen the download page.</p>
+    <button class="restore-btn" id="restoreBtn">Reopen Console</button>
+  </div>
+
+  </div> <!-- End content-container -->
+
+  <!-- Toast for download feedback -->
+  <div class="toast" id="toast">
+    <svg class="toast-icon" viewBox="0 0 20 20" fill="currentColor">
+      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+    </svg>
+    <span id="toastMessage">Download started successfully!</span>
+  </div>
+
+  <!-- Javascript Logic -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const modal = document.getElementById('downloadModal');
+      const restoreContainer = document.getElementById('restoreContainer');
+      const closeBtn = document.getElementById('closeBtn');
+      const restoreBtn = document.getElementById('restoreBtn');
+      
+      const btnWin = document.getElementById('btnWin');
+      const btnMac = document.getElementById('btnMac');
+      const toast = document.getElementById('toast');
+      const toastMessage = document.getElementById('toastMessage');
+
+      // Close Modal logic
+      closeBtn.addEventListener('click', () => {
+        modal.style.opacity = '0';
+        modal.style.transform = 'scale(0.95)';
+        
+        setTimeout(() => {
+          var fallback = setTimeout(() => {
+            window.location.href = '../index.html';
+          }, 150);
+          window.history.back();
+        }, 400);
+      });
+
+      // Close modal on background click
+      document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('content-container')) {
+          closeBtn.click();
+        }
+      });
+
+      // Clear sessionStorage flags when navigating home via header logo
+      document.querySelectorAll('.brand-logo').forEach((logo) => {
+        logo.addEventListener('click', () => {
+          sessionStorage.removeItem('comingFromSubpage');
+          sessionStorage.removeItem('homeScrollY');
+        });
+      });
+
+      // Restore Modal logic
+      restoreBtn.addEventListener('click', () => {
+        restoreContainer.style.display = 'none';
+        modal.style.display = 'block';
+        
+        // Force reflow
+        modal.offsetHeight;
+        
+        modal.style.opacity = '1';
+        modal.style.transform = 'scale(1)';
+      });
+
+      // Show toast helper
+      const showToast = (message) => {
+        toastMessage.textContent = message;
+        toast.classList.add('show');
+        
+        setTimeout(() => {
+          toast.classList.remove('show');
+        }, 3000);
+      };
+
+      // Mock file download trigger
+      const triggerDownload = (filename) => {
+        // We create a dummy 1-byte file to download
+        const blobContent = "Mock executable/installer content for PIXMAP v2.4.1";
+        const blob = new Blob([blobContent], { type: 'application/octet-stream' });
+        const url = URL.createObjectURL(blob);
+        
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = filename;
+        
+        document.body.appendChild(link);
+        link.click();
+        
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+        
+        showToast(`Downloading: ${filename}`);
+      };
+
+      btnWin.addEventListener('click', () => {
+        triggerDownload('PIXMAP-2.4.1.exe');
+      });
+
+      const macOptions = document.getElementById('macOptions');
+      const btnMacIntel = document.getElementById('btnMacIntel');
+      const btnMacARM = document.getElementById('btnMacARM');
+      const btnMacBack = document.getElementById('btnMacBack');
+
+      // Helper to show macOS options with smooth animation
+      const showMacOptions = () => {
+        btnMac.style.opacity = '0';
+        btnMac.style.transform = 'scale(0.96)';
+        btnMac.style.pointerEvents = 'none';
+
+        setTimeout(() => {
+          btnMac.style.display = 'none';
+          macOptions.style.display = 'flex';
+          // Force reflow
+          macOptions.offsetHeight;
+          macOptions.classList.add('show');
+        }, 200);
+      };
+
+      // Helper to hide macOS options and restore main button smoothly
+      const hideMacOptions = () => {
+        macOptions.classList.remove('show');
+        
+        setTimeout(() => {
+          macOptions.style.display = 'none';
+          btnMac.style.display = 'flex';
+          // Force reflow
+          btnMac.offsetHeight;
+          btnMac.style.opacity = '1';
+          btnMac.style.transform = 'scale(1)';
+          btnMac.style.pointerEvents = 'auto';
+        }, 250);
+      };
+
+      btnMac.addEventListener('click', () => {
+        showMacOptions();
+      });
+
+      btnMacIntel.addEventListener('click', () => {
+        triggerDownload('PIXMAP-2.4.1-intel.dmg');
+        hideMacOptions();
+      });
+
+      btnMacARM.addEventListener('click', () => {
+        triggerDownload('PIXMAP-2.4.1-arm64.dmg');
+        hideMacOptions();
+      });
+
+      btnMacBack.addEventListener('click', () => {
+        hideMacOptions();
+      });
+
+      // Card Mouse Move Glow Effect (Dynamic light reflection)
+      const cards = document.querySelectorAll('.platform-card');
+      cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          
+          card.style.setProperty('--x', `${x}px`);
+          card.style.setProperty('--y', `${y}px`);
+        });
+      });
+
+      // Hamburger nav toggle
+      const toggle = document.getElementById('navToggle');
+      const nav = document.getElementById('siteNav');
+      if (toggle && nav) {
+        toggle.addEventListener('click', () => {
+          const open = nav.classList.toggle('open');
+          toggle.classList.toggle('open', open);
+          toggle.setAttribute('aria-expanded', open);
+          document.body.classList.toggle('nav-open', open);
+        });
+        nav.querySelectorAll('a').forEach(a => {
+          a.addEventListener('click', () => {
+            nav.classList.remove('open');
+            toggle.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+            document.body.classList.remove('nav-open');
+          });
+        });
+      }
+
+      // Header scroll state toggle
+      const header = document.querySelector('.site-header');
+      if (header) {
+        window.addEventListener('scroll', () => {
+          header.classList.toggle('scrolled', window.scrollY > 30);
+        }, { passive: true });
+        header.classList.toggle('scrolled', window.scrollY > 30);
+      }
+    });
+  </script>
+  <!-- Background Animation Script -->
+  <script src="../js/grid-trail.js"></script>
+</body>
+</html>

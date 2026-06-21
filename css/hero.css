@@ -1,0 +1,336 @@
+/* ============================================================
+   HERO SECTION
+   Logo 3D flip, glass tile, box story unfold, hero copy
+   ============================================================ */
+
+@font-face {
+  font-family: 'Mioge';
+  src: url('../mioge-font/misc/Mioge - Free Trial-d674.woff2') format('woff2'),
+       url('../mioge-font/misc/Mioge - Free Trial-54ee.woff')  format('woff'),
+       url('../mioge-font/MiogeFreeTrial-WyBMz.ttf')           format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Marige';
+  src: url('../marige/Marige FREE COMMERCIAL/MarigeFree-Thin.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+main { padding-top: var(--header-h); }
+
+/* ---- Hero scroll container ---- */
+.hero {
+  height: 500vh;   /* extended: copy → flip → untilt → reveal → sem1 → future content */
+  position: relative;
+}
+
+/* ============ LOGO 3D ============ */
+#logo3d {
+  position: fixed;
+  left: 50%;
+  top: calc(50% + (var(--header-h) / 2));
+  /* Fluid: scales from 160px on tiny phones up to 420px on wide desktops */
+  width: clamp(160px, min(56vw, 56vh), 420px);
+  aspect-ratio: 1 / 1;
+  transform: translate(-50%, -50%) scale(0);
+  z-index: 500;
+  pointer-events: none;
+  perspective: 1200px;
+  will-change: transform;
+  opacity: 0;
+}
+
+@keyframes logoPop {
+  0%   { transform: translate3d(-50%, -50%, 0) scale3d(0.0071, 0.0071, 1); }
+  100% { transform: translate3d(-50%, -50%, 0) scale3d(1, 1, 1); }
+}
+
+#logo3d.reveal {
+  opacity: 1;
+  transform: translate3d(-50%, -50%, 0) scale3d(1, 1, 1);
+  animation: logoPop 4s cubic-bezier(0.3, 0.25, 0.05, 1) both;
+}
+
+#logo3d.docked { visibility: hidden; }
+
+/* ---- Glass tile behind the logo ---- */
+#logo3d .tile-glass {
+  position: absolute;
+  inset: 12.5%;
+  transform: rotate(45deg);
+  background:
+    linear-gradient(
+      105deg,
+      rgba(255, 255, 255, 0.10)   0%,
+      rgba(255, 255, 255, 0.035) 28%,
+      transparent                46%,
+      transparent                68%,
+      rgba(255, 255, 255, 0.05) 100%
+    ),
+    rgba(255, 255, 255, 0.045);
+  -webkit-backdrop-filter: blur(64px) saturate(200%) brightness(1.08);
+          backdrop-filter: blur(64px) saturate(200%) brightness(1.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    0 8px 32px rgba(0, 0, 0, 0.35);
+}
+
+/* Sabre line revolving around tile edge */
+@property --sabre {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes sabreSpin {
+  to { --sabre: 360deg; }
+}
+
+#logo3d .tile-glass::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  padding: 3px;
+  background: conic-gradient(
+    from var(--sabre),
+    transparent                    0%,
+    transparent                   64%,
+    rgba(110, 195, 255, 0.70)     80%,
+    rgba(190, 230, 255, 1.00)     92%,
+    transparent                  100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+          mask-composite: exclude;
+  filter: blur(6px);
+  animation: sabreSpin 9s linear infinite;
+  pointer-events: none;
+}
+
+/* ---- 3D flip card ---- */
+#logo3d .flip {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+#logo3d .face {
+  position: absolute;
+  inset: 0;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+#logo3d .face.front img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+#logo3d .face.back {
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#logo3d .face.back .diamond {
+  width: 70.7%;
+  height: 70.7%;
+  transform: rotate(45deg);
+  background: linear-gradient(225deg, #44AFE5 0%, #2F8EDF 50%, #1F63D6 100%);
+}
+
+/* ============ BOX STORY ============ */
+#boxStory {
+  position: fixed;
+  left: 50%;
+  top: calc(50% + (var(--header-h) / 2));
+  width: min(320px, 28vw);
+  aspect-ratio: 1 / 1;
+  transform: translate(-50%, -50%);
+  z-index: 499;
+  pointer-events: none;
+  perspective: 1600px;
+  opacity: 0;
+  will-change: opacity;
+}
+
+.panel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #121317;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.panel.center {
+  background: linear-gradient(135deg, #44AFE5 0%, #2F8EDF 50%, #1F63D6 100%);
+  transform-style: preserve-3d;
+}
+
+.panel.wing {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.wing.l1, .wing.l2 { left:  -100%; transform-origin: 100% 50%; }
+.wing.r1, .wing.r2 { right: -100%; transform-origin:   0% 50%; }
+
+.panel .shade {
+  position: absolute;
+  inset: 0;
+  background: #000;
+  opacity: 0;
+  pointer-events: none;
+  will-change: opacity;
+}
+
+/* ============ HERO COPY (tagline) ============ */
+
+/* Word fade-in: GPU-only, opacity + transform */
+@keyframes smoothFadeIn {
+  from { opacity: 0; transform: translate3d(0, 10px, 0); }
+  to   { opacity: 1; transform: translate3d(0,  0px, 0); }
+}
+
+.hero-copy {
+  /* Fluid copy-gap: half the logo width + breathing room, scales with viewport */
+  --copy-gap: clamp(100px, 21vw, 280px);
+  /* Fluid outer padding */
+  --copy-pad: clamp(40px, 7vw, 120px);
+
+  position: fixed;
+  top: calc(50% + (var(--header-h) / 2));
+  z-index: 480;
+  pointer-events: none;
+  font-family: 'OpenSans', sans-serif;
+  font-weight: 100;
+  /* Fluid font: small on narrow viewports, grows on wide screens */
+  font-size: clamp(0.92rem, 1.35vw, 1.45rem);
+  line-height: 2.0;
+  letter-spacing: 0.03em;
+  color: rgba(245, 247, 250, 0.92);
+  opacity: 1;
+  transform: translateY(-50%);
+  transition: none; /* scroll driven by JS */
+}
+
+/* Left half: fully justified */
+.hero-copy.left {
+  left: 0;
+  right: 50%;
+  padding: 0 calc(var(--copy-gap) + 16px) 0 var(--copy-pad);
+  text-align: justify;
+  text-align-last: justify;
+}
+
+/* Right half: fully justified */
+.hero-copy.right {
+  left: 50%;
+  right: 0;
+  padding: 0 var(--copy-pad) 0 calc(var(--copy-gap) + 16px);
+  text-align: justify;
+  text-align-last: justify;
+}
+
+/* Individual words — hidden until parent gets .reveal */
+.hero-copy .word {
+  display: inline-block;
+  opacity: 0;
+  transform: translate3d(0, 10px, 0);
+  will-change: opacity, transform;
+}
+
+.hero-copy.reveal .word {
+  animation: smoothFadeIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ---- Mid-scroll special line ---- */
+.hero-special {
+  position: fixed;
+  bottom: 9vh;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 480;
+  pointer-events: none;
+  font-family: 'OpenSans', sans-serif;
+  font-weight: 100;
+  font-size: clamp(1.6rem, 2vw, 2.4rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(245, 247, 250, 0.88);
+  opacity: 0;
+  will-change: opacity;
+}
+
+/* ---- Responsive ---- */
+
+/* Remove forced last-line full-justify on medium screens where columns get narrow */
+@media (max-width: 1100px) {
+  .hero-copy { text-align-last: auto; }
+}
+
+/* ---- Mobile hero: stacked layout above/below logo ---- */
+@media (max-width: 820px) {
+  .hero-copy {
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    width: 100%;
+    transform: none;
+    /* Fluid font on mobile: scales from 12px on tiny screens to ~17px on tablet */
+    font-size: clamp(0.88rem, 3.9vw, 1.15rem);
+    line-height: 1.85;
+    letter-spacing: 0.01em;
+    padding: 0 clamp(14px, 5vw, 32px);
+    text-align: center;
+    text-align-last: center;
+  }
+
+  .hero-copy.left {
+    top: calc(var(--header-h) + clamp(8px, 2vh, 20px));
+    bottom: auto;
+  }
+
+  .hero-copy.right {
+    top: auto;
+    bottom: clamp(40px, 7vh, 70px);
+    left: 0;
+    right: 0;
+  }
+}
+
+/* Landscape mobile: logo height-capped, text compact */
+@media (max-height: 520px) and (orientation: landscape) {
+  .hero-copy {
+    font-size: clamp(0.62rem, 2vh, 0.76rem);
+    line-height: 1.6;
+    padding: 0 clamp(10px, 3vw, 20px);
+  }
+  .hero-copy.left  { top: calc(var(--header-h) + 4px); }
+  .hero-copy.right { bottom: 8px; }
+}
+
+/* ---- Blank next section (content TBD) ---- */
+.section-blank {
+  min-height: 100vh;
+  position: relative;
+}

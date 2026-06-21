@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing — PIXMAP</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@600;800&family=Geist:wght@400&family=Geist+Mono:wght@400&family=Open+Sans:wght@300;400&family=Oxanium:wght@300;400&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="pricing.css">
+</head>
+<body class="bg-on">
+
+  <!-- Background grid canvas -->
+  <div id="bgField">
+    <canvas id="gridTrail"></canvas>
+  </div>
+
+  <!-- Header Navigation (from index.html style) -->
+  <header class="site-header reveal">
+    <span class="hdr-edge" aria-hidden="true"></span>
+
+    <div class="brand">
+      <a class="brand-logo" href="../index.html">
+        <img src="../assets/logos/logo_black.png" alt="Pix-Map logo">
+      </a>
+      <a class="brand-vj" href="vjkaycee.html">
+        <span class="byline">
+          <span class="by">by</span>
+          <span class="name">VJ KayCee</span>
+        </span>
+      </a>
+    </div>
+
+    <nav class="site-nav" id="siteNav">
+      <a class="nav-link" href="download.html">Downloads</a>
+      <a class="nav-link" href="../index.html#manual">Manual</a>
+      <a class="nav-link" href="pricing.html">Pricing</a>
+      <a class="btn-auth" href="login.html">Login / Sign Up</a>
+    </nav>
+
+    <!-- Hamburger toggle (mobile only) -->
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="siteNav">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Decorative radial background glows -->
+  <div class="bg-glow-container">
+    <div class="radial-glow-top-right"></div>
+    <div class="radial-glow-bottom-left"></div>
+  </div>
+
+  <div class="content-container">
+    
+    <!-- Pricing Modal Wrapper -->
+    <div class="modal-wrapper" id="pricingModal">
+      <div class="modal-content">
+        <div class="modal-glow-corner"></div>
+        
+        <!-- Close button (x) -->
+        <button class="close-btn" id="closeBtn" aria-label="Close pricing page">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+
+        <!-- Title -->
+        <h1 class="modal-title">Pricing</h1>
+
+        <!-- Pricing Cards Grid -->
+        <div class="pricing-grid">
+          
+          <!-- 1. Starter Plan -->
+          <div class="pricing-card">
+            <div>
+              <h2 class="plan-name">Starter</h2>
+              <div class="price-box">
+                <span class="price-amount">Free</span>
+              </div>
+              <ul class="features-list">
+                <li class="feature-item">
+                  <span class="feature-icon">
+                    <svg viewBox="0 0 24 24"><path d="M20 6L9 17L4 12"></path></svg>
+                  </span>
+                  Up to 8 panels
+                </li>
+                <li class="feature-item">
+                  <span class="feature-icon">
+                    <svg viewBox="0 0 24 24"><path d="M20 6L9 17L4 12"></path></svg>
+                  </span>
+                  PNG export
+                </li>
+                <li class="feature-item">
+                  <span class="feature-icon">
+                    <svg viewBox="0 0 24 24"><path d="M20 6L9 17L4 12"></path></svg>
+                  </span>
+                  Community support
+                </li>
+                <li class="feature-item">
+                  <span class="feature-icon">
+                    <svg viewBox="0 0 24 24"><path d="M20 6L9 17L4 12"></path></svg>
+                  </span>
+                  Basic palette
+                </li>
+              </ul>
+            </div>
+            <button class="btn-pricing outline">Start Free</button>
+          </div>
+
+          <!-- 2. Studio Plan (Popular) -->
+          <div class="pricing-card popular">
+            <div class="popular-badge">Most Popular</div>
+            <div>
+              <h2 class="plan-name">Studio</h2>
+              <div class="price-box">
+                <span class="price-amount">$24</span>
+                <span class="price-period">/ month</span>
+              </div>
+              <ul class="features-list">
+                <li class="feature-item">
+                  <span class="feature-icon">
+                    <svg viewBox="0 0 24 24"><path d="M20 6L9 17L4 12"></path></svg>
+                  </span>
+                  Unlimited panels
+                </li>
+                <li class="feature-item">
+                  <span class="feature-icon">
+                    <svg viewBox="0 0 24 24"><path d="M20 6L9 17L4 12"></path></svg>
+                  </span>
+                  Resolume XML export
+                </li>
+                <li class="feature-item">
+                  <span class="feature-icon">
+                    <svg viewBox="0 0 24 24"><path d="M20 6L9 17L4 12"></path></svg>
+                  </span>
+                  Custom PNG masks
+                </li>
+                <li class="feature-item">
+                  <span class="feature-icon">
+                    <svg viewBox="0 0 24 24"><path d="M20 6L9 17L4 12"></path></svg>
+                  </span>
+                  Cloud registry
+                </li>
+                <li class="feature-item">
+                  <span class="feature-icon">
+                    <svg viewBox="0 0 24 24"><path d="M20 6L9 17L4 12"></path></svg>
+                  </span>
+                  Priority support
+                </li>
+              </ul>
+            </div>
+            <button class="btn-pricing primary">Buy Studio</button>
+          </div>
+
+          <!-- 3. Enterprise Plan -->
+          <div class="pricing-card">
+            <div>
+              <h2 class="plan-name">Enterprise</h2>
+              <div class="price-box">
+                <span class="price-amount">Custom</span>
+              </div>
+              <ul class="features-list">
+                <li class="feature-item">
+                  <span class="feature-icon">
+                    <svg viewBox="0 0 24 24"><path d="M20 6L9 17L4 12"></path></svg>
+                  </span>
+                  Multi-seat licenses
+                </li>
+                <li class="feature-item">
+                  <span class="feature-icon">
+                    <svg viewBox="0 0 24 24"><path d="M20 6L9 17L4 12"></path></svg>
+                  </span>
+                  Brand logo embedding
+                </li>
+                <li class="feature-item">
+                  <span class="feature-icon">
+                    <svg viewBox="0 0 24 24"><path d="M20 6L9 17L4 12"></path></svg>
+                  </span>
+                  On-site training
+                </li>
+                <li class="feature-item">
+                  <span class="feature-icon">
+                    <svg viewBox="0 0 24 24"><path d="M20 6L9 17L4 12"></path></svg>
+                  </span>
+                  SLA & onboarding
+                </li>
+              </ul>
+            </div>
+            <button class="btn-pricing outline">Contact Sales</button>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Hidden Restore Container when modal is closed -->
+    <div class="restore-container" id="restoreContainer">
+      <h2 class="restore-title">Console Closed</h2>
+      <p class="restore-desc">Select a plan to unlock the full potential of PIXMAP.</p>
+      <button class="restore-btn" id="restoreBtn">Reopen Console</button>
+    </div>
+
+  </div> <!-- End content-container -->
+
+  <!-- Javascript Logic -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const modal = document.getElementById('pricingModal');
+      const restoreContainer = document.getElementById('restoreContainer');
+      const closeBtn = document.getElementById('closeBtn');
+      const restoreBtn = document.getElementById('restoreBtn');
+
+      // Close Modal logic
+      closeBtn.addEventListener('click', () => {
+        modal.style.opacity = '0';
+        modal.style.transform = 'scale(0.95)';
+        
+        setTimeout(() => {
+          var fallback = setTimeout(() => {
+            window.location.href = '../index.html';
+          }, 150);
+          window.history.back();
+        }, 400);
+      });
+
+      // Close modal on background click
+      document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('content-container')) {
+          closeBtn.click();
+        }
+      });
+
+      // Clear sessionStorage flags when navigating home via header logo
+      document.querySelectorAll('.brand-logo').forEach((logo) => {
+        logo.addEventListener('click', () => {
+          sessionStorage.removeItem('comingFromSubpage');
+          sessionStorage.removeItem('homeScrollY');
+        });
+      });
+
+      // Restore Modal logic
+      restoreBtn.addEventListener('click', () => {
+        restoreContainer.style.display = 'none';
+        modal.style.display = 'block';
+        
+        // Force reflow
+        modal.offsetHeight;
+        
+        modal.style.opacity = '1';
+        modal.style.transform = 'scale(1)';
+      });
+
+      // Card mouse movement coordinates glow effect
+      const cards = document.querySelectorAll('.pricing-card');
+      cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          card.style.setProperty('--x', `${x}px`);
+          card.style.setProperty('--y', `${y}px`);
+        });
+      });
+
+      // Hamburger nav toggle
+      const toggle = document.getElementById('navToggle');
+      const nav = document.getElementById('siteNav');
+      if (toggle && nav) {
+        toggle.addEventListener('click', () => {
+          const open = nav.classList.toggle('open');
+          toggle.classList.toggle('open', open);
+          toggle.setAttribute('aria-expanded', open);
+          document.body.classList.toggle('nav-open', open);
+        });
+        nav.querySelectorAll('a').forEach(a => {
+          a.addEventListener('click', () => {
+            nav.classList.remove('open');
+            toggle.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+            document.body.classList.remove('nav-open');
+          });
+        });
+      }
+
+      // Header scroll state toggle
+      const header = document.querySelector('.site-header');
+      if (header) {
+        window.addEventListener('scroll', () => {
+          header.classList.toggle('scrolled', window.scrollY > 30);
+        }, { passive: true });
+        header.classList.toggle('scrolled', window.scrollY > 30);
+      }
+    });
+  </script>
+  <!-- Background Animation Script -->
+  <script src="../js/grid-trail.js"></script>
+</body>
+</html>

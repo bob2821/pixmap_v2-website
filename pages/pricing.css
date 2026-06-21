@@ -1,0 +1,480 @@
+/* ============================================================
+   PIXMAP PRICING SCREEN STYLES
+   Custom styles for pricing.html
+   ============================================================ */
+
+/* Import Google Fonts - Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-color: #04050a;
+  --modal-bg: rgba(6, 8, 16, 0.85);
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-glow: rgba(59, 130, 246, 0.18);
+  
+  --text-main: #ffffff;
+  --text-muted: #94a3b8; /* Slate 400 */
+  --text-dim: #64748b;   /* Slate 500 */
+  
+  --accent-blue: #3b82f6;
+  --accent-blue-rgb: 59, 130, 246;
+  --btn-gradient: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  --btn-gradient-hover: linear-gradient(135deg, #60a5fa 0%, #2563eb 100%);
+  
+  --font-heading: 'Inter', -apple-system, sans-serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+}
+
+/* Reset and Base Styles */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Header Overrides for Standalone Pages */
+.site-header {
+  transform: translateY(0) !important;
+  transition: none !important;
+}
+
+/* Background Gradients & Glows */
+.bg-glow-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.radial-glow-top-right {
+  position: absolute;
+  top: 15%;
+  right: 15%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(var(--accent-blue-rgb), 0.18) 0%, rgba(var(--accent-blue-rgb), 0) 70%);
+  filter: blur(60px);
+  pointer-events: none;
+  transform: translate(30%, -30%);
+}
+
+.radial-glow-bottom-left {
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(var(--accent-blue-rgb), 0.08) 0%, rgba(var(--accent-blue-rgb), 0) 70%);
+  filter: blur(80px);
+  pointer-events: none;
+  transform: translate(-30%, 30%);
+}
+
+/* Main Container Layout */
+.content-container {
+  padding-top: var(--header-h);
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.modal-wrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 900px;
+  margin: 20px;
+  padding: 1.5px;
+  /* Glowing blue border gradient all around */
+  background: linear-gradient(135deg, rgba(var(--accent-blue-rgb), 0.7) 0%, rgba(var(--accent-blue-rgb), 0.2) 50%, rgba(var(--accent-blue-rgb), 0.6) 100%);
+  border-radius: 24px;
+  box-shadow: 0 45px 110px rgba(0, 0, 0, 0.85), 
+              0 0 50px rgba(var(--accent-blue-rgb), 0.24); /* Stronger blue outer glow */
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Centered soft backdrop glow behind the modal box */
+.modal-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 110%;
+  height: 110%;
+  background: radial-gradient(circle, rgba(var(--accent-blue-rgb), 0.22) 0%, rgba(var(--accent-blue-rgb), 0.06) 55%, rgba(var(--accent-blue-rgb), 0) 70%);
+  filter: blur(80px);
+  z-index: -1;
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+.modal-glow-corner {
+  position: absolute;
+  top: -120px;
+  right: -120px;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(var(--accent-blue-rgb), 0.65) 0%, rgba(var(--accent-blue-rgb), 0.18) 40%, rgba(var(--accent-blue-rgb), 0) 70%);
+  filter: blur(45px); /* Direct soft blur since it sits on top of the glass background */
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 50%;
+}
+
+.modal-content {
+  background-color: var(--modal-bg);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  border-radius: 22.5px;
+  padding: 48px 48px 44px 48px;
+  position: relative;
+  z-index: 1;
+  box-shadow: inset 0 0 24px rgba(27, 108, 252, 0.14), 
+              inset 0 0 2px rgba(255, 255, 255, 0.1);
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 36px;
+  right: 36px;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-dim);
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+  color: var(--text-main);
+  background-color: rgba(255, 255, 255, 0.05);
+  transform: scale(1.05);
+}
+
+.close-btn svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+
+/* Title */
+.modal-title {
+  font-family: var(--font-heading);
+  font-size: 36px;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  margin-bottom: 36px;
+  color: var(--text-main);
+}
+
+/* Pricing Grid */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 12px;
+}
+
+/* Individual Pricing Card */
+.pricing-card {
+  background-color: rgba(255, 255, 255, 0.01);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 18px;
+  padding: 36px 24px 28px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.pricing-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(800px circle at var(--x, 0px) var(--y, 0px), rgba(27, 108, 252, 0.06), transparent 40%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-radius: 18px;
+}
+
+.pricing-card:hover {
+  border-color: rgba(27, 108, 252, 0.2);
+  background-color: rgba(255, 255, 255, 0.02);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.pricing-card:hover::before {
+  opacity: 1;
+}
+
+/* Highlighted Popular Card */
+.pricing-card.popular {
+  border-color: rgba(27, 108, 252, 0.28);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 
+              inset 0 0 14px rgba(27, 108, 252, 0.05);
+}
+
+.pricing-card.popular:hover {
+  border-color: rgba(27, 108, 252, 0.45);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 
+              0 0 24px rgba(27, 108, 252, 0.05),
+              inset 0 0 14px rgba(27, 108, 252, 0.05);
+}
+
+/* Popular Badge */
+.popular-badge {
+  position: absolute;
+  top: -12.5px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--btn-gradient);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  font-size: 8.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  padding: 6px 14px;
+  border-radius: 30px;
+  box-shadow: 0 4px 10px rgba(var(--accent-blue-rgb), 0.35);
+  pointer-events: none;
+}
+
+/* Card Header Components */
+.plan-name {
+  font-family: var(--font-heading);
+  font-size: 17.5px;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.price-box {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 28px;
+  height: 48px; /* Alignment guard */
+}
+
+.price-amount {
+  font-family: var(--font-heading);
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.price-period {
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  color: var(--text-dim);
+  margin-left: 6px;
+}
+
+/* Features List */
+.features-list {
+  list-style: none;
+  margin-bottom: 36px;
+  flex-grow: 1;
+}
+
+.feature-item {
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  color: #c5cbdc; /* Light gray-white list text */
+  display: flex;
+  align-items: center;
+  margin-bottom: 14px;
+  line-height: 1.4;
+}
+
+.feature-icon {
+  width: 14px;
+  height: 14px;
+  color: var(--accent-blue);
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.feature-icon svg {
+  width: 100%;
+  height: 100%;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  fill: none;
+}
+
+/* Pricing Buttons */
+.btn-pricing {
+  width: 100%;
+  height: 46px;
+  border-radius: 50px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-pricing.outline {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+.btn-pricing.outline:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.02);
+  transform: translateY(-1px);
+}
+
+.btn-pricing.outline:active {
+  transform: translateY(1px);
+}
+
+.btn-pricing.primary {
+  background: var(--btn-gradient);
+  border: none;
+  color: var(--text-main);
+  font-weight: 600;
+  box-shadow: 0 4px 16px rgba(var(--accent-blue-rgb), 0.3);
+}
+
+.btn-pricing.primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0) 100%);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.btn-pricing.primary:hover {
+  background: var(--btn-gradient-hover);
+  box-shadow: 0 6px 20px rgba(var(--accent-blue-rgb), 0.45);
+  transform: translateY(-1px);
+}
+
+.btn-pricing.primary:hover::after {
+  transform: translateX(100%);
+}
+
+.btn-pricing.primary:active {
+  transform: translateY(1px);
+}
+
+/* Restore/Reveal Box when Closed */
+.restore-container {
+  position: relative;
+  z-index: 1;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: var(--modal-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 480px;
+  margin: 20px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(25px);
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.restore-title {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+
+.restore-desc {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.restore-btn {
+  padding: 12px 28px;
+  background: var(--btn-gradient);
+  color: var(--text-main);
+  border: none;
+  border-radius: 30px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(var(--accent-blue-rgb), 0.3);
+}
+
+.restore-btn:hover {
+  background: var(--btn-gradient-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(var(--accent-blue-rgb), 0.4);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Responsive Styles */
+@media (max-width: 860px) {
+  .modal-content {
+    padding: 36px 24px 32px 24px;
+  }
+  
+  .close-btn {
+    top: 24px;
+    right: 24px;
+  }
+  
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  
+  .pricing-card {
+    padding: 32px 20px 24px 20px;
+  }
+  
+  .popular-badge {
+    top: -12px;
+  }
+}

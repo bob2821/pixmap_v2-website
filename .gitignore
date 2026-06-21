@@ -1,0 +1,17 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+
+# Temp / scratch artifacts
+*.tmp
+_wtest.tmp
+assets/_t/
+
+# Logs
+*.log
+
+# Dependencies (if ever added)
+node_modules/

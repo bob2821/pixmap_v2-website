@@ -1,0 +1,549 @@
+/* ============================================================
+   PIXMAP DOWNLOAD SCREEN STYLES
+   Custom styles for download.html matching the provided UI
+   ============================================================ */
+
+/* Import Google Fonts - Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-color: #04050a;
+  --modal-bg: rgba(6, 8, 16, 0.85);
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-glow: rgba(59, 130, 246, 0.18);
+  
+  --text-main: #ffffff;
+  --text-muted: #94a3b8; /* Slate 400 */
+  --text-dim: #64748b;   /* Slate 500 */
+  
+  --accent-blue: #3b82f6; /* Modern Blue */
+  --accent-blue-rgb: 59, 130, 246;
+  --btn-gradient: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  --btn-gradient-hover: linear-gradient(135deg, #60a5fa 0%, #2563eb 100%);
+  
+  --font-heading: 'Inter', -apple-system, sans-serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+}
+
+/* Reset and Base Styles */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Background Gradients & Glows */
+.bg-glow-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* The soft blue glow that appears behind/above the modal */
+.radial-glow-top-right {
+  position: absolute;
+  top: 15%;
+  right: 15%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(var(--accent-blue-rgb), 0.18) 0%, rgba(var(--accent-blue-rgb), 0) 70%);
+  filter: blur(60px);
+  pointer-events: none;
+  transform: translate(30%, -30%);
+}
+
+.radial-glow-bottom-left {
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(var(--accent-blue-rgb), 0.08) 0%, rgba(var(--accent-blue-rgb), 0) 70%);
+  filter: blur(80px);
+  pointer-events: none;
+  transform: translate(-30%, 30%);
+}
+
+.modal-wrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 900px;
+  margin: 20px;
+  padding: 1.5px; /* Thin premium border line */
+  /* Glowing blue border gradient all around */
+  background: linear-gradient(135deg, rgba(var(--accent-blue-rgb), 0.7) 0%, rgba(var(--accent-blue-rgb), 0.2) 50%, rgba(var(--accent-blue-rgb), 0.6) 100%);
+  border-radius: 24px;
+  box-shadow: 0 45px 110px rgba(0, 0, 0, 0.9), 
+              0 0 50px rgba(var(--accent-blue-rgb), 0.24); /* Stronger blue outer glow */
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Centered soft backdrop glow behind the modal box */
+.modal-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 110%;
+  height: 110%;
+  background: radial-gradient(circle, rgba(var(--accent-blue-rgb), 0.22) 0%, rgba(var(--accent-blue-rgb), 0.06) 55%, rgba(var(--accent-blue-rgb), 0) 70%);
+  filter: blur(80px);
+  z-index: -1;
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+.modal-glow-corner {
+  position: absolute;
+  top: -120px;
+  right: -120px;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(var(--accent-blue-rgb), 0.65) 0%, rgba(var(--accent-blue-rgb), 0.18) 40%, rgba(var(--accent-blue-rgb), 0) 70%);
+  filter: blur(45px); /* Direct soft blur since it sits on top of the glass background */
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 50%;
+}
+
+.modal-content {
+  background-color: var(--modal-bg);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  border-radius: 22.5px;
+  padding: 48px 48px 44px 48px;
+  position: relative;
+  z-index: 1; /* Sits in front of the glow-corner */
+  /* Inset box shadow creates the "inside side" light glow that bleeds inward from the borders */
+  box-shadow: inset 0 0 24px rgba(var(--accent-blue-rgb), 0.14), 
+              inset 0 0 2px rgba(255, 255, 255, 0.1);
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 36px;
+  right: 36px;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-dim);
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+  color: var(--text-main);
+  background-color: rgba(255, 255, 255, 0.05);
+  transform: scale(1.05);
+}
+
+.close-btn svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+
+/* Typography */
+.label-downloads {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #2b75e2; /* Cobalt blue label */
+  margin-bottom: 24px;
+  display: inline-block;
+}
+
+.modal-title {
+  font-family: var(--font-heading);
+  font-size: 36px;
+  font-weight: 400; /* Regular weight */
+  letter-spacing: -0.02em; /* Compact letters as in image */
+  margin-bottom: 16px;
+  color: var(--text-main);
+}
+
+.modal-title span.version {
+  color: #2f80ed; /* Azure blue version */
+  font-weight: 400; /* Regular weight */
+}
+
+.modal-description {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.55;
+  letter-spacing: -0.01em;
+  color: #e2e8f0; /* Softer off-white text */
+  max-width: 580px;
+  margin-bottom: 36px;
+}
+
+/* Cards Grid */
+.cards-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 36px;
+}
+
+/* Individual Platform Card */
+.platform-card {
+  background-color: rgba(255, 255, 255, 0.01);
+  /* Muted blue border catching the volumetric ambient glow */
+  border: 1px solid rgba(27, 108, 252, 0.12);
+  border-radius: 18px;
+  padding: 28px 24px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: inset 0 0 12px rgba(27, 108, 252, 0.03);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.platform-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(800px circle at var(--x, 0px) var(--y, 0px), rgba(27, 108, 252, 0.06), transparent 40%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.platform-card:hover {
+  border-color: rgba(27, 108, 252, 0.25);
+  background-color: rgba(255, 255, 255, 0.02);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 
+              0 0 20px rgba(27, 108, 252, 0.03);
+}
+
+.platform-card:hover::before {
+  opacity: 1;
+}
+
+/* Card Header Layout */
+.card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.icon-wrapper {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background-color: rgba(27, 108, 252, 0.1);
+  border: 1.5px solid rgba(27, 108, 252, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--accent-blue);
+  margin-right: 16px;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.platform-card:hover .icon-wrapper {
+  background-color: rgba(27, 108, 252, 0.16);
+  border-color: rgba(27, 108, 252, 0.4);
+  transform: scale(1.05);
+}
+
+.icon-wrapper svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+.platform-name {
+  font-family: var(--font-heading);
+  font-size: 19px;
+  font-weight: 400; /* Regular weight */
+  letter-spacing: -0.015em;
+  color: var(--text-main);
+}
+
+.file-size {
+  margin-left: auto;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: #64748b; /* Soft slate grey */
+}
+
+/* Card Details (Technical info) */
+.card-details {
+  font-family: var(--font-body);
+  font-size: 12.5px;
+  line-height: 1.6;
+  letter-spacing: -0.005em;
+  color: #e2e8f0; /* Softer off-white tech details */
+  margin-bottom: 28px;
+  min-height: 42px; /* ensures buttons align even if texts wrap differently */
+}
+
+/* Download Button */
+.download-btn {
+  width: 100%;
+  height: 48px;
+  background: var(--btn-gradient);
+  border: none;
+  border-radius: 50px;
+  color: var(--text-main);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 18px rgba(var(--accent-blue-rgb), 0.3);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.download-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0) 100%);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.download-btn:hover {
+  background: var(--btn-gradient-hover);
+  box-shadow: 0 6px 24px rgba(var(--accent-blue-rgb), 0.5);
+  transform: translateY(-1px);
+}
+
+.download-btn:hover::after {
+  transform: translateX(100%);
+}
+
+.download-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 10px rgba(var(--accent-blue-rgb), 0.3);
+}
+
+/* Footer / Disclaimer */
+.modal-footer {
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  color: #475569; /* Muted Slate-600 grey-blue */
+  line-height: 1.5;
+  letter-spacing: -0.005em;
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+  padding-top: 24px;
+}
+
+/* Restore/Reveal Box when Closed */
+.restore-container {
+  position: relative;
+  z-index: 1;
+  display: none; /* JS toggles to flex */
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: var(--modal-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 480px;
+  margin: 20px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(25px);
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.restore-title {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.restore-desc {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.restore-btn {
+  padding: 12px 28px;
+  background: var(--btn-gradient);
+  color: var(--text-main);
+  border: none;
+  border-radius: 30px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(var(--accent-blue-rgb), 0.3);
+}
+
+.restore-btn:hover {
+  background: var(--btn-gradient-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(var(--accent-blue-rgb), 0.4);
+}
+
+/* Toast Notification for Download Initiated */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: rgba(10, 16, 32, 0.95);
+  border: 1px solid rgba(var(--accent-blue-rgb), 0.4);
+  border-radius: 12px;
+  padding: 16px 24px;
+  color: var(--text-main);
+  font-family: var(--font-body);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(var(--accent-blue-rgb), 0.15);
+  z-index: 100;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  pointer-events: none;
+}
+
+.toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.toast-icon {
+  width: 20px;
+  height: 20px;
+  color: #10b981; /* Emerald green */
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .modal-content {
+    padding: 36px 24px 32px 24px;
+  }
+  
+  .close-btn {
+    top: 24px;
+    right: 24px;
+  }
+  
+  .modal-title {
+    font-size: 30px;
+    margin-top: 12px;
+  }
+  
+  .cards-container {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .platform-card {
+    padding: 24px 20px 20px 20px;
+  }
+}
+
+/* macOS Architecture Selector Animation */
+.btn-mac-main {
+  transition: opacity 0.2s ease, transform 0.2s ease, background 0.3s ease, box-shadow 0.3s ease, transform 0.12s ease !important;
+}
+
+.mac-options-container {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  opacity: 0;
+  transform: scale(0.96);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.mac-options-container.show {
+  display: flex;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.mac-back-link {
+  background: transparent;
+  border: none;
+  color: var(--text-dim);
+  font-size: 12px;
+  cursor: pointer;
+  margin-top: 6px;
+  font-family: var(--font-body);
+  transition: color 0.2s ease;
+  text-decoration: underline;
+}
+
+.mac-back-link:hover {
+  color: var(--text-main);
+}
+
+/* ============================================================
+   HEADER OVERRIDES FOR STANDALONE PAGES
+   ============================================================ */
+.site-header {
+  transform: translateY(0) !important;
+  transition: none !important;
+}
+
+.content-container {
+  padding-top: var(--header-h);
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}

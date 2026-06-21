@@ -1,0 +1,127 @@
+/* ============================================================
+   VARIABLES & BASE RESET
+   Global CSS custom properties, reset, html/body foundations
+   ============================================================ */
+
+@font-face {
+  font-family: 'Costaline';
+  src: url('../costaline/Costaline-Thin.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Costaline';
+  src: url('../costaline/Costaline-ThinItalic.otf') format('opentype');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'OpenSans';
+  src: url('../assets/fonts/open-sans/OpenSans-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'OpenSans';
+  src: url('../assets/fonts/open-sans/OpenSans-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'OpenSans';
+  src: url('../assets/fonts/open-sans/OpenSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'OpenSans';
+  src: url('../assets/fonts/open-sans/OpenSans-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  --bg:        #04040E;       /* deep dark blue-black — lets grid lines show */
+  --header-bg: #000000;       /* solid black header base */
+  --text:      #f2f2f2;
+  --text-dim:  #b8b8bd;
+  --accent:    #2f7ddd;       /* pulled from logo blue */
+  --accent-2:  #4aa0ff;
+  --header-h:  72px;
+
+  /* Fallback angles for the conic-gradient glow rings. Used ONLY by
+     browsers without @property support — there an unregistered var()
+     would fail and hide the ring entirely. Browsers that DO support
+     @property ignore these (those rules use inherits:false + their own
+     initial-value), so the live animation is unchanged. */
+  --sabre:     130deg;
+  --sem1Sabre: 130deg;
+  --op1Sabre:  130deg;
+  --hlSabre:   130deg;
+}
+
+@media (max-width: 760px)  { :root { --header-h: 60px; } }
+@media (max-width: 480px)  { :root { --header-h: 56px; } }
+
+/* ---- Reset ---- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ---- Scrollbar ---- */
+html {
+  scroll-behavior: auto;       /* instant reset on load; smooth re-enabled after */
+  scrollbar-width: none;       /* Firefox */
+  -ms-overflow-style: none;    /* IE / old Edge */
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar { display: none; }
+
+/* ---- Body ---- */
+body {
+  background: #000000;         /* solid black during intro */
+  color: var(--text);
+  font-family: 'OpenSans', "Segoe UI", system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  transition: background-color 2.4s ease;
+}
+
+body.bg-on    { background: var(--bg); }
+body.loading  { overflow: hidden; }
+
+/* ---- Torch-reveal grid background ---- */
+#bgField {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 2.4s ease;
+  pointer-events: none;
+}
+
+body.bg-on #bgField { opacity: 1; }
+
+#bgField canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Content sits above the grid field */
+main,
+.site-footer { position: relative; z-index: 1; }

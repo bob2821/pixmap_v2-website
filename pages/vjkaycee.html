@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VJ KayCee — Profile</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@300;400;600;800&family=Geist:wght@400&family=Geist+Mono:wght@400&family=Open+Sans:wght@300;400&family=Oxanium:wght@300;400&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="vjkaycee.css">
+</head>
+<body class="bg-on">
+
+  <!-- Background grid canvas -->
+  <div id="bgField">
+    <canvas id="gridTrail"></canvas>
+  </div>
+
+  <!-- Header Navigation (from index.html style) -->
+  <header class="site-header reveal">
+    <span class="hdr-edge" aria-hidden="true"></span>
+
+    <div class="brand">
+      <a class="brand-logo" href="../index.html">
+        <img src="../assets/logos/logo_black.png" alt="Pix-Map logo">
+      </a>
+      <a class="brand-vj" href="vjkaycee.html">
+        <span class="byline">
+          <span class="by">by</span>
+          <span class="name">VJ KayCee</span>
+        </span>
+      </a>
+    </div>
+
+    <nav class="site-nav" id="siteNav">
+      <a class="nav-link" href="download.html">Downloads</a>
+      <a class="nav-link" href="../index.html#manual">Manual</a>
+      <a class="nav-link" href="pricing.html">Pricing</a>
+      <a class="btn-auth" href="login.html">Login / Sign Up</a>
+    </nav>
+
+    <!-- Hamburger toggle (mobile only) -->
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="siteNav">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Decorative radial background glows -->
+  <div class="bg-glow-container">
+    <div class="radial-glow-top-right"></div>
+    <div class="radial-glow-bottom-left"></div>
+  </div>
+
+  <div class="content-container">
+    
+    <!-- Profile Modal Wrapper -->
+    <div class="modal-wrapper" id="profileModal">
+      <div class="modal-content">
+        <div class="modal-glow-corner"></div>
+      
+        <!-- Close button (x) in the top-left -->
+        <button class="close-btn" id="closeBtn" aria-label="Close profile console">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+
+        <!-- Header: Title & Subtitle -->
+        <div class="profile-header">
+          <h1 class="profile-name">VJ KayCee</h1>
+          <div class="profile-subtitle">VISUAL ARTIST &middot; STAGE ENGINEER &middot; FOUNDER OF PIXMAP</div>
+        </div>
+
+        <!-- Stats Container -->
+        <div class="stats-container">
+          <div class="stat-item">
+            <span class="stat-value">14 yrs</span>
+            <span class="stat-label">LIVE VISUALS</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">48+</span>
+            <span class="stat-label">FESTIVAL INSTALLS</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">12M+</span>
+            <span class="stat-label">PIXELS MAPPED</span>
+          </div>
+        </div>
+
+        <!-- Biography Text -->
+        <p class="profile-bio">
+          KayCee has been behind the lens and behind the patch for a generation of Indian stages. From the first Sunburn Goa LED back-wall to touring rigs for NH7 Weekender, Supersonic, and a dozen underground warehouse nights nobody's supposed to talk about.
+        </p>
+        
+        <p class="profile-bio">
+          He built PIXMAP because the existing tools made him feel like a technician, not an artist. It ships with the opinions of someone who has gaffed XLR in a downpour at 3am and still had to deliver a showday build before doors.
+        </p>
+
+        <!-- Glowing Quote Highlight Block -->
+        <blockquote class="profile-quote">
+          <p class="quote-text">"Every pixel matters. The tools we had never understood that. So I built one that does."</p>
+          <cite class="quote-author">- VJ KayCee, Founder &middot; Pixadoo</cite>
+        </blockquote>
+
+        <!-- Bottom Social/Action Buttons -->
+        <div class="buttons-row">
+          <a class="profile-btn" href="javascript:void(0)">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+            VJ KAYCEE INSTAGRAM
+          </a>
+          <a class="profile-btn" href="https://pixadoo.in" target="_blank" rel="noopener">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+            PIXADOO WEBSITE
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Hidden Restore Container when modal is closed -->
+    <div class="restore-container" id="restoreContainer">
+      <h2 class="restore-title">Console Closed</h2>
+      <p class="restore-desc">Want to view VJ KayCee's creator profile again? Click below to reopen the console.</p>
+      <button class="restore-btn" id="restoreBtn">Reopen Console</button>
+    </div>
+
+  </div> <!-- End content-container -->
+
+  <!-- Javascript Logic -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const modal = document.getElementById('profileModal');
+      const restoreContainer = document.getElementById('restoreContainer');
+      const closeBtn = document.getElementById('closeBtn');
+      const restoreBtn = document.getElementById('restoreBtn');
+
+      // Close Modal logic
+      closeBtn.addEventListener('click', () => {
+        modal.style.opacity = '0';
+        modal.style.transform = 'scale(0.95)';
+        
+        setTimeout(() => {
+          var fallback = setTimeout(() => {
+            window.location.href = '../index.html';
+          }, 150);
+          window.history.back();
+        }, 400);
+      });
+
+      // Close modal on background click
+      document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('content-container')) {
+          closeBtn.click();
+        }
+      });
+
+      // Clear sessionStorage flags when navigating home via header logo
+      document.querySelectorAll('.brand-logo').forEach((logo) => {
+        logo.addEventListener('click', () => {
+          sessionStorage.removeItem('comingFromSubpage');
+          sessionStorage.removeItem('homeScrollY');
+        });
+      });
+
+      // Restore Modal logic
+      restoreBtn.addEventListener('click', () => {
+        restoreContainer.style.display = 'none';
+        modal.style.display = 'block';
+        
+        // Force reflow
+        modal.offsetHeight;
+        
+        modal.style.opacity = '1';
+        modal.style.transform = 'scale(1)';
+      });
+
+      // Hamburger nav toggle
+      const toggle = document.getElementById('navToggle');
+      const nav = document.getElementById('siteNav');
+      if (toggle && nav) {
+        toggle.addEventListener('click', () => {
+          const open = nav.classList.toggle('open');
+          toggle.classList.toggle('open', open);
+          toggle.setAttribute('aria-expanded', open);
+          document.body.classList.toggle('nav-open', open);
+        });
+        nav.querySelectorAll('a').forEach(a => {
+          a.addEventListener('click', () => {
+            nav.classList.remove('open');
+            toggle.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+            document.body.classList.remove('nav-open');
+          });
+        });
+      }
+
+      // Header scroll state toggle
+      const header = document.querySelector('.site-header');
+      if (header) {
+        window.addEventListener('scroll', () => {
+          header.classList.toggle('scrolled', window.scrollY > 30);
+        }, { passive: true });
+        header.classList.toggle('scrolled', window.scrollY > 30);
+      }
+    });
+  </script>
+  
+  <!-- Background Animation Script -->
+  <script src="../js/grid-trail.js"></script>
+</body>
+</html>

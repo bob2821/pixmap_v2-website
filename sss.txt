@@ -1,0 +1,1313 @@
+/* FOOTER */
+
+box-sizing: border-box;
+
+position: absolute;
+height: 379.74px;
+left: 0.1px;
+right: -0.1px;
+top: 5307.95px;
+
+/* Ebony */
+background: #05070D;
+/* www.pixmap.in/White 6% */
+border-top: 1px solid rgba(255, 255, 255, 0.06);
+
+
+/* div.container */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px 28px;
+gap: 60px;
+
+position: absolute;
+width: 1280px;
+max-width: 1280px;
+height: 267.69px;
+left: 320px;
+top: 81px;
+
+
+
+/* div.foot-grid */
+
+width: 1224px;
+height: 160.69px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* div.foot-brand */
+
+position: absolute;
+max-width: 340px;
+height: 160.91px;
+left: 0px;
+right: 884px;
+top: 0px;
+
+
+
+/* p */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+position: absolute;
+height: 45px;
+left: 0px;
+right: 0px;
+top: 71px;
+
+
+
+/* Built for the stage. Engineered for precision. The professional standard in LED pixel mapping. */
+
+width: 340px;
+height: 45px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 22px;
+/* or 160% */
+display: flex;
+align-items: center;
+letter-spacing: -0.16px;
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Group 8659 */
+
+position: absolute;
+width: 179.85px;
+height: 65.14px;
+left: 0px;
+top: 0px;
+
+
+
+/* div */
+
+position: absolute;
+width: 66.56px;
+height: 65.14px;
+left: 0px;
+top: 0px;
+
+
+
+/* PIXMAP Logo */
+
+position: absolute;
+width: 66.56px;
+height: 65.14px;
+left: 0px;
+top: 0px;
+
+background: url(.png);
+mix-blend-mode: screen;
+
+
+/* div */
+
+position: absolute;
+width: 113.29px;
+height: 15px;
+left: 66.56px;
+top: 0px;
+
+
+
+/* span */
+
+position: absolute;
+width: 113.29px;
+height: 15px;
+left: 0px;
+top: 0px;
+
+
+
+/* By */
+
+position: absolute;
+width: 22px;
+height: 15px;
+left: 0px;
+top: 0px;
+
+font-family: 'Outfit';
+font-style: normal;
+font-weight: 600;
+font-size: 14.4291px;
+line-height: 14px;
+/* identical to box height, or 100% */
+display: flex;
+align-items: center;
+letter-spacing: 3.1744px;
+text-transform: uppercase;
+
+background: linear-gradient(96.23deg, #FFFFFF 0%, rgba(160, 200, 255, 0.9) 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+text-fill-color: transparent;
+
+
+
+/* span */
+
+position: absolute;
+width: 131px;
+height: 25px;
+left: -0.01px;
+top: 21.55px;
+
+
+
+/* VJ KayCee */
+
+position: absolute;
+width: 131px;
+height: 25px;
+left: 0px;
+top: 0px;
+
+font-family: 'Outfit';
+font-style: normal;
+font-weight: 800;
+font-size: 24.0485px;
+line-height: 24px;
+/* or 100% */
+display: flex;
+align-items: center;
+letter-spacing: 1.44291px;
+
+background: linear-gradient(100.31deg, #FFFFFF 0%, rgba(160, 200, 255, 0.9) 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+text-fill-color: transparent;
+
+
+
+/* div.foot-col */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 16px;
+
+position: absolute;
+height: 161.2px;
+left: 477.6px;
+right: 537.6px;
+top: 0px;
+
+
+
+/* h5 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+width: 208.8px;
+height: 16px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Product */
+
+width: 208.8px;
+height: 16px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 16px;
+/* identical to box height, or 97% */
+display: flex;
+align-items: center;
+letter-spacing: 1.8px;
+text-transform: uppercase;
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* ul */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 10px;
+
+width: 208.8px;
+height: 129.2px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* li */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 1px 0px 1.8px;
+
+width: 208.8px;
+height: 24.8px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Component 7 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+
+width: 208.8px;
+height: 22px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Text */
+
+width: 208.8px;
+height: 22px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 22px;
+/* identical to box height, or 155% */
+display: flex;
+align-items: center;
+letter-spacing: -0.16px;
+
+/* Heather */
+color: #B2B9CC;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+
+
+/* li */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 1px 0px 1.8px;
+
+width: 208.8px;
+height: 24.8px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Component 7 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+
+width: 208.8px;
+height: 22px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Text */
+
+width: 208.8px;
+height: 22px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 22px;
+/* identical to box height, or 155% */
+display: flex;
+align-items: center;
+letter-spacing: -0.16px;
+
+/* Heather */
+color: #B2B9CC;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+
+
+/* li */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 1px 0px 1.8px;
+
+width: 208.8px;
+height: 24.8px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Component 7 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+
+width: 208.8px;
+height: 22px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Text */
+
+width: 208.8px;
+height: 22px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 22px;
+/* identical to box height, or 155% */
+display: flex;
+align-items: center;
+letter-spacing: -0.16px;
+
+/* Heather */
+color: #B2B9CC;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+
+
+/* li */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 1px 0px 1.8px;
+
+width: 208.8px;
+height: 24.8px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Component 7 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+
+width: 208.8px;
+height: 22px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Text */
+
+width: 208.8px;
+height: 22px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 22px;
+/* identical to box height, or 155% */
+display: flex;
+align-items: center;
+letter-spacing: -0.16px;
+
+/* Heather */
+color: #B2B9CC;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+
+
+/* div.foot-col */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 16px;
+
+position: absolute;
+height: 161.2px;
+left: 746.4px;
+right: 268.8px;
+top: 0px;
+
+
+
+/* h5 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+width: 208.8px;
+height: 16px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Support */
+
+width: 208.8px;
+height: 16px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 16px;
+/* identical to box height, or 97% */
+display: flex;
+align-items: center;
+letter-spacing: 1.8px;
+text-transform: uppercase;
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* ul */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 10px;
+
+width: 208.8px;
+height: 129.2px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* li */
+
+width: 208.8px;
+height: 24.8px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Component 7 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+
+position: absolute;
+height: 22px;
+left: 0px;
+right: 0px;
+top: 1px;
+
+
+
+/* Text */
+
+width: 208.8px;
+height: 22px;
+
+/* Geist/Regular */
+font-family: 'Geist';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 22px;
+/* identical to box height, or 155% */
+display: flex;
+align-items: center;
+letter-spacing: -0.16px;
+
+/* Heather */
+color: #B2B9CC;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+
+
+/* li */
+
+width: 208.8px;
+height: 24.8px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Component 7 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+
+position: absolute;
+height: 22px;
+left: 0px;
+right: 0px;
+top: 1px;
+
+
+
+/* Text */
+
+width: 208.8px;
+height: 22px;
+
+/* Geist/Regular */
+font-family: 'Geist';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 22px;
+/* identical to box height, or 155% */
+display: flex;
+align-items: center;
+letter-spacing: -0.16px;
+
+/* Heather */
+color: #B2B9CC;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+
+
+/* li */
+
+width: 208.8px;
+height: 24.8px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Component 7 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+
+position: absolute;
+height: 22px;
+left: 0px;
+right: 0px;
+top: 1px;
+
+
+
+/* Text */
+
+width: 208.8px;
+height: 22px;
+
+/* Geist/Regular */
+font-family: 'Geist';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 22px;
+/* identical to box height, or 155% */
+display: flex;
+align-items: center;
+letter-spacing: -0.16px;
+
+/* Heather */
+color: #B2B9CC;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+
+
+/* li */
+
+width: 208.8px;
+height: 24.8px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Component 7 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+
+position: absolute;
+height: 22px;
+left: 0px;
+right: 0px;
+top: 1px;
+
+
+
+/* Text */
+
+width: 208.8px;
+height: 22px;
+
+/* Geist/Regular */
+font-family: 'Geist';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 22px;
+/* identical to box height, or 155% */
+display: flex;
+align-items: center;
+letter-spacing: -0.16px;
+
+/* Heather */
+color: #B2B9CC;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+
+
+/* div.foot-col */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px 0px 34.8px;
+gap: 16px;
+
+position: absolute;
+height: 161.2px;
+left: 1015.2px;
+right: 0px;
+top: 0px;
+
+
+
+/* h5 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+width: 208.8px;
+height: 16px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Legal */
+
+width: 208.8px;
+height: 16px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 16px;
+/* identical to box height, or 97% */
+display: flex;
+align-items: center;
+letter-spacing: 1.8px;
+text-transform: uppercase;
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* ul */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 10px;
+
+width: 208.8px;
+height: 94.4px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* li */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 1px 0px 1.8px;
+
+width: 208.8px;
+height: 24.8px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Component 7 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+
+width: 208.8px;
+height: 22px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Text */
+
+width: 208.8px;
+height: 22px;
+
+/* Geist/Regular */
+font-family: 'Geist';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 22px;
+/* identical to box height, or 155% */
+display: flex;
+align-items: center;
+letter-spacing: -0.16px;
+
+/* Heather */
+color: #B2B9CC;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+
+
+/* li */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 1px 0px 1.8px;
+
+width: 208.8px;
+height: 24.8px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Component 7 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+
+width: 208.8px;
+height: 22px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Text */
+
+width: 208.8px;
+height: 22px;
+
+/* Geist/Regular */
+font-family: 'Geist';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 22px;
+/* identical to box height, or 155% */
+display: flex;
+align-items: center;
+letter-spacing: -0.16px;
+
+/* Heather */
+color: #B2B9CC;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+
+
+/* li */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 1px 0px 1.8px;
+
+width: 208.8px;
+height: 24.8px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Component 7 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+
+width: 208.8px;
+height: 22px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Text */
+
+width: 208.8px;
+height: 22px;
+
+/* Geist/Regular */
+font-family: 'Geist';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 22px;
+/* identical to box height, or 155% */
+display: flex;
+align-items: center;
+letter-spacing: -0.16px;
+
+/* Heather */
+color: #B2B9CC;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+
+
+/* div.foot-bottom */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 28px 0px 0px;
+gap: 632.22px;
+
+width: 1265px;
+height: 47px;
+
+/* www.pixmap.in/White 6% */
+border-top: 1px solid rgba(255, 255, 255, 0.06);
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* div */
+
+width: 254.11px;
+height: 17.05px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* © 2026 PIXMAP. All rights reserved. */
+
+position: absolute;
+width: 296px;
+height: 17px;
+left: 0px;
+top: 0px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 17px;
+/* identical to box height, or 106% */
+display: flex;
+align-items: center;
+letter-spacing: 0.66px;
+
+color: #FFFFFF;
+
+
+
+/* div.foot-bottom-right */
+
+width: 379px;
+height: 18px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Frame 8666 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 20px;
+
+position: absolute;
+width: 337.67px;
+left: 0.33px;
+top: 0.69px;
+bottom: 0.26px;
+
+
+
+/* span */
+
+width: 50.83px;
+height: 17.05px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* v 2.4.1 */
+
+position: absolute;
+width: 52px;
+height: 17px;
+left: 0px;
+top: 0px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 17px;
+/* identical to box height, or 106% */
+display: flex;
+align-items: center;
+letter-spacing: 0.66px;
+
+color: #FFFFFF;
+
+
+
+/* span */
+
+width: 145.2px;
+height: 17.05px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Arena 7.20 certified */
+
+position: absolute;
+width: 161px;
+height: 17px;
+left: 0px;
+top: 0px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 17px;
+/* identical to box height, or 106% */
+display: flex;
+align-items: center;
+letter-spacing: 0.66px;
+
+color: #FFFFFF;
+
+
+
+/* span */
+
+width: 101.64px;
+height: 17.05px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Mumbai · India */
+
+position: absolute;
+width: 143px;
+height: 17px;
+left: 0px;
+top: 0px;
+
+font-family: 'Geist Mono';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 17px;
+/* identical to box height, or 106% */
+display: flex;
+align-items: center;
+letter-spacing: 0.66px;
+
+color: #FFFFFF;
+

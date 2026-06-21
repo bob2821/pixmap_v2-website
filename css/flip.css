@@ -1,0 +1,85 @@
+/* ============================================================
+   PANEL FLIP  — after the 12 USPs, the sem1 + stage panel
+   flips on its vertical axis in the same position, then
+   settles on a clean dark back. Geometry matches #sem1Bg
+   (JS sets exact px) so the handoff is seamless.
+   ============================================================ */
+
+#flipSticky {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 494;
+  visibility: hidden;
+}
+
+#flipSticky.active { visibility: visible; }
+
+/* Perspective wrapper — no overflow:hidden so preserve-3d is not flattened */
+#flipPerspective {
+  position: absolute;
+  inset: 0;
+  perspective: 1900px;
+  perspective-origin: 50% calc(50% + var(--header-h) / 2);
+}
+
+/* The flip card — sized to match #sem1Bg by JS */
+#flipCard {
+  position: absolute;
+  left: 50%;
+  top: calc(50% + var(--header-h) / 2);
+  width: clamp(560px, 90vw, 1360px);
+  aspect-ratio: 1920 / 992;
+  max-height: calc(100vh - var(--header-h) - 60px);
+  transform-style: preserve-3d;
+  transform:
+    translate(-50%, -50%)
+    translateZ(var(--lift, 0px))
+    rotateX(var(--flip, 0deg));
+  will-change: transform;
+}
+
+.flip-face {
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* FRONT — dark grey background matches the back face so card edges
+   look consistent during the rotation */
+.flip-front {
+  background: #1e1e1e;
+  box-shadow:
+    0 0 32px 6px  rgba(68, 175, 229, 0.28),
+    0 0 72px 20px rgba(47, 142, 223, 0.10);
+}
+
+#flipSem {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Stage/patch overlay — geometry set inline by JS to match #patchFinal */
+#flipPatch {
+  position: absolute;
+  display: block;
+  pointer-events: none;
+}
+
+/* BACK — hardcoded solid dark grey. JS reveals this face by hiding
+   .flip-front once the card passes 90°, no external overlay needed. */
+.flip-back {
+  transform: rotateX(180deg);
+  background: #1e1e1e;
+  border-radius: 8px;
+}
