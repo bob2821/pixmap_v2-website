@@ -1,0 +1,13 @@
+/* ============================================================
+   FINAL CTA INSTANT VISIBILITY
+   Removes fade-in/fade-out only for the last sentence + button.
+   Scroll flow, OP2 reverse animation, and footer behavior remain unchanged.
+   ============================================================ */
+
+#finalCta {
+  transition: none !important;
+}
+
+#finalCta.revealed {
+  opacity: 1 !important;
+}
