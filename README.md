@@ -4,6 +4,8 @@ A scroll-driven product website for **PIXMAP** — a professional platform for l
 
 Built for the stage. Engineered for precision.
 
+**Live Website:** [https://bob2821.github.io/pixmap_v2-website/](https://bob2821.github.io/pixmap_v2-website/)
+
 ---
 
 ## Overview
