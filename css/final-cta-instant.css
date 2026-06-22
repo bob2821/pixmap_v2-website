@@ -1,13 +1,17 @@
 /* ============================================================
-   FINAL CTA INSTANT VISIBILITY
-   Removes fade-in/fade-out only for the last sentence + button.
+   FINAL CTA NATURAL VISIBILITY
+   Keeps the last sentence + Download button visible as a normal
+   page section. No fade-in, no fade-out, and no hide state.
    Scroll flow, OP2 reverse animation, and footer behavior remain unchanged.
    ============================================================ */
 
 #finalCta {
+  opacity: 1 !important;
+  visibility: visible !important;
   transition: none !important;
 }
 
 #finalCta.revealed {
   opacity: 1 !important;
+  visibility: visible !important;
 }
