@@ -5,11 +5,10 @@
      sem1+patch fade → sentence A → op1 tile assembly → op1 panels
      → op1/op2 flip → wiring sentence → op2 panels → final CTA → footer
 
-   Final handoff fix:
-     The OP2 → final CTA transition now uses a deterministic scroll
-     distance based on viewport and OP2 image height, instead of relying
-     on a live getBoundingClientRect() check. This prevents random gaps
-     and flicker during fast or inconsistent scrolling.
+   Final handoff:
+     OP2 floats first, then OP2 image + panels scroll upward, then the
+     final CTA is revealed. On reverse scroll, the CTA hides and OP2
+     returns naturally with its six floating elements. No forced scroll jump.
    ============================================================ */
 
 (function () {
@@ -25,15 +24,6 @@
   var uspSection = document.getElementById('uspSection');
 
   if (!sem1Bg || !op1Scene || !op1Grid) return;
-
-  /* Safety: reveal #finalCta whenever it naturally enters view. */
-  if (finalCta && 'IntersectionObserver' in window) {
-    new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) finalCta.classList.add('revealed');
-      });
-    }, { threshold: 0.01 }).observe(finalCta);
-  }
 
   /* ── Helpers ──────────────────────────────────────────────── */
   function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
@@ -319,6 +309,35 @@
     if (finalCta) finalCta.classList.add('revealed');
   }
 
+  function renderOp2Stage(fwd2, vh2, p2Drift) {
+    var up = fwd2 > p2Drift ? (fwd2 - p2Drift) : 0;
+
+    op1Scene.style.visibility = 'visible';
+    op1Scene.style.opacity = '1';
+    op1Scene.style.transform = up > 0
+      ? 'translateX(-50%) translateY(calc(-50% - ' + px(up) + '))'
+      : '';
+    setTiles(TILE_TOTAL + 1);
+    if (op1Img) op1Img.style.opacity = '1';
+    setBaseHidden();
+    op1FlipWrap.style.transform = 'rotateX(180deg)';
+    op1Scene.classList.add('glow-active');
+
+    var op2DriftT = clamp(fwd2 / p2Drift, 0, 1);
+    var op2MoveY = -(op2DriftT * 32) - up;
+    op2Group.wrap.style.visibility = 'visible';
+    var op2Op = fwd2 < 120 ? clamp(fwd2 / 120, 0, 1) : (up > 0 ? clamp(1 - up / 150, 0, 1) : 1);
+    op2Group.panels.forEach(function (el) {
+      el.classList.add('visible');
+      el.style.opacity = op2Op.toFixed(3);
+      el.style.transform = 'translateY(' + px(op2MoveY) + ')';
+    });
+
+    hideGroup(op1Group);
+    setOverlay(0);
+    setSentB(0);
+  }
+
   /* ── rAF loop ─────────────────────────────────────────────── */
   function frame(ts) {
     requestAnimationFrame(frame);
@@ -601,8 +620,7 @@
       if (fwd2 < 0) {
         resetFinalLatch();
         STATE = 'COMPLETE';
-        var asmAnchor2 = op1AsmScrollY || savedAnchor;
-        window.scrollTo(0, asmAnchor2 + 2.00 * vh2 - 10);
+        postBAnchor = null;
         return;
       }
 
@@ -611,49 +629,13 @@
       var sceneTop = (vh2 / 2) + (getHeaderHeight() / 2);
       var P2_EXIT = P2_DRIFT + sceneTop + (sceneH / 2) + 4;
 
-      if (window.PIXMAP._postBExitDone) {
-        op1Scene.style.opacity = '0';
-        op1Scene.style.visibility = 'hidden';
-        op1Scene.style.transform = '';
-        op1Scene.classList.remove('glow-active');
-        hideGroup(op1Group);
-        hideGroup(op2Group);
-        setOverlay(0);
-        setSentB(0);
-        setBaseHidden();
-        if (finalCta) finalCta.classList.add('revealed');
-        return;
-      }
-
       if (fwd2 >= P2_EXIT) {
         completePostBHandoff(P2_EXIT);
         return;
       }
 
-      var up = fwd2 > P2_DRIFT ? (fwd2 - P2_DRIFT) : 0;
-      op1Scene.style.visibility = 'visible';
-      op1Scene.style.opacity = '1';
-      op1Scene.style.transform = up > 0
-        ? 'translateX(-50%) translateY(calc(-50% - ' + px(up) + '))'
-        : '';
-      setTiles(TILE_TOTAL + 1);
-      if (op1Img) op1Img.style.opacity = '1';
-      setBaseHidden();
-      op1FlipWrap.style.transform = 'rotateX(180deg)';
-      op1Scene.classList.add('glow-active');
-
-      var op2DriftT = clamp(fwd2 / P2_DRIFT, 0, 1);
-      var op2MoveY = -(op2DriftT * 32) - up;
-      op2Group.wrap.style.visibility = 'visible';
-      var op2Op = fwd2 < 120 ? clamp(fwd2 / 120, 0, 1) : (up > 0 ? clamp(1 - up / 150, 0, 1) : 1);
-      op2Group.panels.forEach(function (el) {
-        el.classList.add('visible');
-        el.style.opacity = op2Op.toFixed(3);
-        el.style.transform = 'translateY(' + px(op2MoveY) + ')';
-      });
-      hideGroup(op1Group);
-      setOverlay(0);
-      setSentB(0);
+      if (window.PIXMAP._postBExitDone) resetFinalLatch();
+      renderOp2Stage(fwd2, vh2, P2_DRIFT);
     }
   }, { passive: true });
 
